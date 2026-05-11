@@ -10,6 +10,8 @@ import heroImg1 from "@/assets/tamzor-hero-1.jpg";
 import heroImg2 from "@/assets/tamzor-hero-2.jpg";
 import seedsScatter from "@/assets/seeds-scatter.jpg";
 import sunflowerField from "@/assets/sunflower-field.jpg";
+import logo from "@/assets/tamzor-logo.jpg";
+import ChatWidget from "@/components/ChatWidget";
 
 /* ── Scroll animation hook ── */
 function useScrollAnimation() {
@@ -90,14 +92,25 @@ const Navbar = () => {
       scrolled ? "bg-background/95 backdrop-blur-xl shadow-lg border-b" : "bg-transparent"
     }`}>
       <div className="container mx-auto px-4 h-16 md:h-20 flex items-center justify-between">
-        <a href="#" className="text-xl md:text-2xl font-extrabold tracking-tight group">
-          <span className={`transition-colors duration-300 ${scrolled ? "text-primary" : "text-primary-foreground"}`}>
-            TA'MZOR
-          </span>{" "}
-          <span className={`font-medium text-xs md:text-sm transition-colors duration-300 ${
-            scrolled ? "text-muted-foreground" : "text-primary-foreground/60"
-          }`}>
-            ORIGINAL
+        <a href="#" className="flex items-center gap-2.5 group">
+          <img
+            src={logo}
+            alt="Ta'mzor Original logo"
+            className={`rounded-full transition-all duration-300 ${
+              scrolled ? "w-10 h-10 ring-2 ring-primary/30" : "w-11 h-11 ring-2 ring-primary-foreground/40"
+            } group-hover:scale-105`}
+          />
+          <span className="leading-tight">
+            <span className={`block text-base md:text-lg font-extrabold tracking-tight transition-colors duration-300 ${
+              scrolled ? "text-primary" : "text-primary-foreground"
+            }`}>
+              TA'MZOR
+            </span>
+            <span className={`block font-semibold text-[10px] md:text-xs tracking-[0.2em] transition-colors duration-300 ${
+              scrolled ? "text-muted-foreground" : "text-primary-foreground/70"
+            }`}>
+              ORIGINAL
+            </span>
           </span>
         </a>
 
@@ -747,6 +760,7 @@ const Index = () => {
       <TestimonialsSection />
       <ContactSection />
       <Footer />
+      <ChatWidget />
     </>
   );
 };
